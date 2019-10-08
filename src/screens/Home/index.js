@@ -1,7 +1,17 @@
 import React from 'react'
 import logo from 'assets/img/logo.svg';
+import ProductsService from "services/products";
+
 
 const Home = () => {
+   const products =  new ProductsService().fetchAllProducts();
+   products.then(response => {
+       console.log(response);
+   })
+   .catch( error => {
+       console.log(error);
+   });
+
     return (
         <div className="App">
           <header className="App-header">
