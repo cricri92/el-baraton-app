@@ -1,0 +1,9 @@
+@import "variables";
+
+.main-title {
+  color: $main-title-font-color;
+  font-family: 'PT Serif', serif;
+  font-size: $main-title-font-size;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
