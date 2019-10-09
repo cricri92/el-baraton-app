@@ -10,7 +10,7 @@ import './styles.scss';
 
 const Header = () => {
   return (
-    <header>
+    <header className="fixed-top">
       <div className="container-fluid header justify-content-between align-items-center">
         <Link className="navbar-brand" to="/">
           <img src={logo} className="brand-logo" alt="El Baratón" />

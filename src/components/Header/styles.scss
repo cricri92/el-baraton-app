@@ -1,5 +1,9 @@
 @import 'variables';
 
+.header-container {
+  width: 100%;
+}
+
 .brand-logo {
   height: $app-header-brand-logo-height;
   width: auto;
