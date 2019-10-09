@@ -1,0 +1,29 @@
+@import 'variables';
+
+.brand-logo {
+  height: $app-header-brand-logo-height;
+  width: auto;
+  padding: $app-header-brand-logo-padding;
+}
+
+.header {
+  height: $app-header-height;
+  width: 100%;
+  display: flex;
+  background: $app-header-background-color;
+}
+
+.header-actions {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header-actions__icons {
+  font-size: $app-header-icons-font-size;
+  color: $app-header-icons-color;
+
+  &:first-child {
+    margin-right: $app-header-icon-right-margin;
+  }
+}
