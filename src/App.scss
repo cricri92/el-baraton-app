@@ -1,8 +1,13 @@
 @import '~bootstrap/scss/bootstrap.scss';
 @import url('https://fonts.googleapis.com/css?family=Montserrat|PT+Serif|Satisfy&display=swap');
+@import "components/Header/variables";
 
-.App {
-  text-align: center;
+* {
+  font-family: 'Montserrat', 'sans-serif';
+}
+
+.app {
+  margin-top: $app-header-height;
 }
 
 .App-logo {

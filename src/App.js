@@ -10,7 +10,7 @@ import 'App.scss';
 const App = () => {
     return (
         <Router>
-          <div>
+          <div className="app">
             <Header/>
             <Route exact path="/" component={Home} />
             <Route path="/home-detail" component={HomeDetail} />
