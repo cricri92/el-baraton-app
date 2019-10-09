@@ -2,8 +2,12 @@
 
 .main-title {
   color: $main-title-font-color;
-  font-family: 'PT Serif', serif;
+  font-family: 'Satisfy', serif;
   font-size: $main-title-font-size;
-  text-align: center;
-  border-bottom: 1px solid black;
+}
+
+.main-title-border-bottom {
+  width: 35%;
+  height: 2px;
+  background: $main-title-font-color;
 }

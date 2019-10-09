@@ -1,5 +1,5 @@
-import React from 'react'
-import classnames from 'classnames/bind'
+import React from 'react';
+import classnames from 'classnames/bind';
 
 import './styles.scss';
 
@@ -10,6 +10,7 @@ const MainTitle = ({ titleText, className }) => {
       [className]: className !== undefined
     })}>
       {titleText}
+      <div className="main-title-border-bottom"/>
     </h1>
   );
 };
