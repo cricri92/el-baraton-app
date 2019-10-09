@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
 
 import './styles.scss';
@@ -13,6 +14,11 @@ const MainTitle = ({ titleText, className }) => {
       <div className="main-title-border-bottom"/>
     </h1>
   );
+};
+
+MainTitle.propTypes = {
+  titleText: PropTypes.string.isRequired,
+  className: PropTypes.string
 };
 
 export default MainTitle;
