@@ -11,3 +11,21 @@
   height: 2px;
   background: $main-title-font-color;
 }
+
+@media (max-width: 992px) {
+  .main-title {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .main-title-border-bottom {
+    height: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-title {
+    font-size: 32px;
+    text-align: center;
+  }
+}
