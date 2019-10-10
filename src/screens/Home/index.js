@@ -26,7 +26,7 @@ class Home extends Component {
         description: 'Frescura y variedad'
       },
       {
-        id: 1,
+        id: 2,
         img: baratoVivir,
         description: 'Café Barato Vivir'
       },
