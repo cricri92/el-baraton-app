@@ -19,6 +19,19 @@ class Home extends Component {
       activeIndex: 0
     };
 
+    this.promoItems = [
+      {
+        id: 1,
+        img: freshVariety,
+        description: 'Frescura y variedad'
+      },
+      {
+        id: 1,
+        img: baratoVivir,
+        description: 'Café Barato Vivir'
+      },
+    ];
+
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
   }
@@ -34,13 +47,13 @@ class Home extends Component {
 
   next() {
     if (this.animating) return;
-    const nextIndex = this.state.activeIndex === [1,2].length - 1 ? 0 : this.state.activeIndex + 1;
+    const nextIndex = this.state.activeIndex === this.promoItems.length - 1 ? 0 : this.state.activeIndex + 1;
     this.setState({ activeIndex: nextIndex });
   }
 
   previous() {
     if (this.animating) return;
-    const nextIndex = this.state.activeIndex === 0 ? [1,2].length - 1 : this.state.activeIndex - 1;
+    const nextIndex = this.state.activeIndex === 0 ? this.promoItems.length - 1 : this.state.activeIndex - 1;
     this.setState({ activeIndex: nextIndex });
   }
 
@@ -48,20 +61,21 @@ class Home extends Component {
     const { productsList, activeIndex } = this.state;
 
     return (
-      <div>
-        <MainTitle className="pt-5 pb-3 pb-lg-5" titleText={"Ofertas imperdibles"}/>
+      <React.Fragment>
         <Carousel activeIndex={activeIndex}
                   previous={this.previous}
                   next={this.next}>
-          <CarouselItem>
-            <img className="home-carousel-img" src={freshVariety} alt="Frescura y variedad"/>
-          </CarouselItem>
-          <CarouselItem>
-            <img className="home-carousel-img" src={baratoVivir} alt="Barato vivir Café"/>
-          </CarouselItem>
+          {
+            this.promoItems.map(item =>
+              <CarouselItem key={item.id}>
+                <img className="home-carousel-img" src={item.img} alt={item.description}/>
+              </CarouselItem>
+            )
+          }
         </Carousel>
+        <MainTitle className="pt-5 pb-3 pb-lg-5" titleText={"Ofertas imperdibles"}/>
         <ProductsList productsList={productsList} />
-      </div>
+      </React.Fragment>
     )
   }
 }
