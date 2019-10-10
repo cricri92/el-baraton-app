@@ -11,7 +11,6 @@ const MainTitle = ({ titleText, className }) => {
       [className]: className !== undefined
     })}>
       {titleText}
-      <div className="main-title-border-bottom"/>
     </h1>
   );
 };
