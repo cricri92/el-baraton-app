@@ -4,13 +4,13 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 import { faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
-import logo from 'assets/img/el-baraton-green.png';
+import logo from 'assets/img/el-baraton.png';
 
 import './styles.scss';
 
 const Header = () => {
   return (
-    <header className="fixed-top">
+    <header className="header fixed-top">
       <div className="container-fluid header justify-content-between align-items-center">
         <Link className="navbar-brand" to="/">
           <img src={logo} className="brand-logo" alt="El Baratón" />
