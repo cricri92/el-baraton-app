@@ -1,0 +1,8 @@
+@import "variables";
+
+.product-price {
+  font-size: $product-price-font-size;
+  color: $product-price-font-color;
+  font-family: $product-price-font-family;
+  font-weight: $product-price-font-weight;
+}
