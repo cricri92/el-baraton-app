@@ -19,8 +19,10 @@ class Home extends Component {
     super();
 
     this.state = {
-      productsList: [],
-      activeIndex: 0
+      bestOfferProducts: [],
+      topThreeProducts: [],
+      activeIndex: 0,
+      productService: new ProductsService()
     };
 
     this.promoItems = [
@@ -41,12 +43,19 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    new ProductsService().fetchMostAffordableProducts()
-      .then(productsList => {
+    this.state.productService.fetchMostAffordableProducts()
+      .then(bestOfferProducts => {
         this.setState({
-          productsList
+          bestOfferProducts
         });
       });
+
+    this.state.productService.fetchTopProducts()
+      .then(topThreeProducts => {
+        this.setState({
+          topThreeProducts
+        })
+      })
   }
 
   next() {
@@ -62,7 +71,7 @@ class Home extends Component {
   }
 
   render() {
-    const { productsList, activeIndex } = this.state;
+    const { bestOfferProducts, topThreeProducts, activeIndex } = this.state;
 
     return (
       <React.Fragment>
@@ -79,7 +88,12 @@ class Home extends Component {
         </Carousel>
         <div className="container mt-3 mb-3 align-items-center">
           <MainTitle className="pt-5 pb-5" titleText={"Ofertas imperdibles"}/>
-          <ProductsList productsList={productsList} />
+          <ProductsList productsList={bestOfferProducts} />
+          <AppLink classNames={"all-products-link pb-5"} linkTo={""}>
+            VER TODAS LAS OFERTAS <FontAwesomeIcon icon={faArrowRight} />
+          </AppLink>
+          <MainTitle className="pt-5 pb-5" titleText={"Los más vendidos"}/>
+          <ProductsList productsList={topThreeProducts} />
           <AppLink classNames={"all-products-link pb-5"} linkTo={""}>
             VER TODAS LAS OFERTAS <FontAwesomeIcon icon={faArrowRight} />
           </AppLink>
