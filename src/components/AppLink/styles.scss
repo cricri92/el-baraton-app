@@ -1,0 +1,11 @@
+@import "variables";
+
+.app-link {
+  color: $app-link-font-color;
+  font-weight: $app-link-font-weight;
+  display: block;
+
+  &:hover {
+    color: $app-link-font-color;
+  }
+}
