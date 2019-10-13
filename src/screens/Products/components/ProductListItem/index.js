@@ -1,37 +1,82 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
+import {IN_STOCK, NO_STOCK} from "screens/Products/constants";
+
+import AppLink from "components/AppLink";
+import AppButton from "components/AppButton";
+import ProductPrice from "screens/Products/components/ProductPrice";
+import ProductStatusBadge from "screens/Products/components/ProductStatusBadge";
+
 import './styles.scss';
 
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+class ProductListItem extends Component {
+  constructor() {
+    super();
 
-const ProductListItem = ({ product, classNames }) => {
-  return (
-    <div className={classnames({
-      "product-list-item": true,
-      [classNames]: classNames !== undefined
-    })}>
-      <a href="http://google.com">
-        <div className="text-center align-content-center product-list-item__img-container">
-          <img src={"https://justoybueno.com/wp-content/uploads/2018/09/leche-bolsa-copy.jpg"} alt={product.name} className="product-list-item__img" />
-        </div>
-      </a>
-      <div className="product-list-item__info">
-        <a href="http://google.com" className="product-item-name">{product.name}</a>
-        <span className="product-item-price">{product.price}</span>
+    this.state = {
+      displayAddToCartAction: false,
+      hoveredProduct: null
+    };
+
+    this.onMouseEnterEvent = product => this._onMouseEnterEvent.bind(this, product);
+    this.onMouseLeaveEvent = this.onMouseLeaveEvent.bind(this);
+  }
+
+  _onMouseEnterEvent(product) {
+    this.setState({
+      displayAddToCartAction: true,
+      hoveredProduct: product
+    });
+  };
+
+  onMouseLeaveEvent() {
+    this.setState({
+      displayAddToCartAction: false,
+      hoveredProduct: null,
+    })
+  };
+
+  render() {
+    const { product, classNames } = this.props;
+    const { displayAddToCartAction } = this.state;
+
+    return (
+      <div className={classnames({
+          "product-item": true,
+          [classNames]: classNames !== undefined
+        })}
+        onMouseEnter={this.onMouseEnterEvent(product)}
+        onMouseLeave={this.onMouseLeaveEvent}>
+          <div className="product-item__img">
+            <img src="https://justoybueno.com/wp-content/uploads/2018/09/leche-bolsa-copy.jpg"
+                alt={product.name} />
+            {
+              displayAddToCartAction && (
+                <div className="product-item__actions">
+                  <AppButton classNames={"product-item__action-button"}>
+                    <FontAwesomeIcon icon={faShoppingCart} /> Añadir al carrito
+                  </AppButton>
+                </div>
+              )
+            }
+          </div>
+          <ProductStatusBadge productStatus={product.quantity > 0 ? IN_STOCK : NO_STOCK} />
+          <div className="product-item__info">
+            <AppLink classNames={"product-item__name"}>
+              {product.name}
+            </AppLink>
+            <ProductPrice price={product.price}
+              classNames={"product-item__price"} />
+          </div>
       </div>
-      <div className="product-list-item__actions">
-        <button type="button" className="product-item-add-to-cart-button">
-          <FontAwesomeIcon icon={faShoppingCart} />
-          <span>Añadir al carrito</span>
-        </button>
-      </div>
-    </div>
-  )
-};
+      );
+  }
+}
 
 ProductListItem.propTypes = {
   product: PropTypes.shape({
