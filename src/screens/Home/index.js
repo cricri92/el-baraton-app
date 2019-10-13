@@ -37,7 +37,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    new ProductsService().fetchAllProducts()
+    new ProductsService().fetchMostAffordableProducts()
       .then(productsList => {
         this.setState({
           productsList
@@ -73,8 +73,10 @@ class Home extends Component {
             )
           }
         </Carousel>
-        <MainTitle className="pt-5 pb-3 pb-lg-5" titleText={"Ofertas imperdibles"}/>
-        <ProductsList productsList={productsList} />
+        <div className="container mt-3">
+          <MainTitle className="pt-5 pb-5" titleText={"Ofertas imperdibles"}/>
+          <ProductsList productsList={productsList} />
+        </div>
       </React.Fragment>
     )
   }
