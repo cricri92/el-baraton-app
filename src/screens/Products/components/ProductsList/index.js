@@ -4,12 +4,12 @@ import ProductListItem from "screens/Products/components/ProductListItem";
 
 const ProductsList = ({ productsList }) => {
   return (
-    <div className="row">
+    <div className="row justify-content-between products-list">
       {
         productsList.map(product => (
-          <ProductListItem classNames="col-xl-3 col-lg-4 col-sm-12"
-                           product={product}
-                           key={product.id} />
+            <ProductListItem product={product}
+               key={product.id}
+              classNames={"col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12"} />
         ))
       }
     </div>
