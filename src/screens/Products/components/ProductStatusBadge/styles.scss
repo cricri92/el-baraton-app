@@ -1,23 +1,24 @@
+@import "variables";
+
 .product-status-badge {
   display: block;
   position: absolute;
-  right: 15px;
-  height: 25px;
-  font-size: 13px;
-  color: white;
-  font-weight: bold;
-  text-align: right;
-  padding-top: 2px;
-  padding-left: 10px;
-  padding-right: 5px;
-  vertical-align: middle;
-  top: 10px;
+  right: $product-status-badge-right-align;
+  top: $product-status-badge-top-align;
+  height: $product-status-badge-height;
+  font-size: $product-status-badge-font-size;
+  color: $product-status-badge-font-color;
+  font-weight: $product-status-badge-font-weight;
+  text-align: $product-status-badge-text-align;
+  padding-top: $product-status-badge-padding-top;
+  padding-left: $product-status-badge-padding-left;
+  padding-right: $product-status-badge-padding-right;
 }
 
 .product-status-badge--in-stock {
-  background: #799E5B;
+  background: $product-status-badge-in-stock-color;
 }
 
 .product-status-badge--no-stock {
-  background: darkred;
+  background: $product-status-badge-no-stock-color;
 }
