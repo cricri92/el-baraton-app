@@ -1,0 +1,9 @@
+@import "variables";
+
+.app-button {
+  color: $app-button-text-color;
+  background: $app-button-background-color;
+  border: $app-button-border;
+  font-weight: $app-button-font-weight;
+  padding: $app-button-padding;
+}

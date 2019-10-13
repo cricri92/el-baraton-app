@@ -1,0 +1,23 @@
+@import "variables";
+
+.main-title {
+  color: $main-title-font-color;
+  font-family: 'Roboto Condensed', serif;
+  font-size: $main-title-font-size;
+  text-transform: uppercase;
+  letter-spacing: $main-title-letter-spacing;
+  font-weight: $main-title-font-weight;
+  text-align: center;
+}
+
+@media (max-width: 992px) {
+  .main-title {
+    font-size: $main-title-medium-font-size;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-title {
+    font-size: $main-title-small-font-size;
+  }
+}
