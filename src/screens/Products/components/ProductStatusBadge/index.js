@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames/bind';
+import PropTypes from 'prop-types';
 
 import {IN_STOCK, IN_STOCK_TEXT, NO_STOCK, NO_STOCK_TEXT} from "screens/Products/constants";
 
@@ -21,6 +22,11 @@ const ProductStatusBadge = ({ productStatus, classNames }) => {
       }
     </div>
   )
+};
+
+ProductStatusBadge.propTypes = {
+  productStatus: PropTypes.oneOf([IN_STOCK, NO_STOCK]).isRequired,
+  classNames: PropTypes.string
 };
 
 export default ProductStatusBadge;
