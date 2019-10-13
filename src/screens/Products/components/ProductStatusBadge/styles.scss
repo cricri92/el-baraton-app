@@ -1,6 +1,8 @@
 @import "variables";
 
 .product-status-badge {
+  font-family: "Roboto Condensed", sans-serif;
+  text-transform: uppercase;
   display: block;
   position: absolute;
   right: $product-status-badge-right-align;
