@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import {Carousel, CarouselItem} from "reactstrap";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-import MainTitle from "./components/MainTitle";
+import MainTitle from "screens/Home/components/MainTitle";
 import ProductsList from "screens/Products/components/ProductsList";
 import ProductsService from "services/products";
+import AppLink from "components/AppLink";
 
 import freshVariety from 'assets/img/fresh-variety.png';
 import baratoVivir from 'assets/img/barato-vivir.png';
+
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 import './styles.scss';
 
@@ -73,9 +77,12 @@ class Home extends Component {
             )
           }
         </Carousel>
-        <div className="container mt-3">
+        <div className="container mt-3 mb-3 align-items-center">
           <MainTitle className="pt-5 pb-5" titleText={"Ofertas imperdibles"}/>
           <ProductsList productsList={productsList} />
+          <AppLink classNames={"all-products-link pb-5"} linkTo={""}>
+            VER TODAS LAS OFERTAS <FontAwesomeIcon icon={faArrowRight} />
+          </AppLink>
         </div>
       </React.Fragment>
     )
