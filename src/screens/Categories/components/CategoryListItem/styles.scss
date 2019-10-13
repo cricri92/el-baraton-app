@@ -1,0 +1,44 @@
+.category-list-item {
+  margin-bottom: 30px;
+}
+
+.category-list-item-content {
+  height: 250px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: #799E5B;
+
+  &:hover {
+    background: #ECFEAA;
+
+    .category-list-item-content__name {
+      color: white;
+      background: black;
+      letter-spacing: .2rem;
+      font-weight: bold;
+    }
+  }
+}
+
+.category-list-item-content__name {
+  font-size: 32px;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  padding: 5px 15px;
+}
+
+@media (max-width: 1200px) and (min-width: 993px) {
+  .category-list-item-content__name {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 992px) and (min-width: 769px) {
+  .category-list-item-content__name {
+    font-size: 20px;
+  }
+}
