@@ -13,6 +13,8 @@ import baratoVivir from 'assets/img/barato-vivir.png';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 import './styles.scss';
+import CategoriesService from "services/categories";
+import CategoriesList from "screens/Categories/components/CategoriesList";
 
 class Home extends Component {
   constructor() {
@@ -21,8 +23,10 @@ class Home extends Component {
     this.state = {
       bestOfferProducts: [],
       topThreeProducts: [],
+      topThreeCategories: [],
       activeIndex: 0,
-      productService: new ProductsService()
+      productService: new ProductsService(),
+      categoryService: new CategoriesService(),
     };
 
     this.promoItems = [
@@ -55,7 +59,14 @@ class Home extends Component {
         this.setState({
           topThreeProducts
         })
-      })
+      });
+
+    this.state.categoryService.fetchTopThreeCategories()
+      .then(topThreeCategories => {
+        this.setState({
+          topThreeCategories
+        });
+      });
   }
 
   next() {
@@ -71,7 +82,7 @@ class Home extends Component {
   }
 
   render() {
-    const { bestOfferProducts, topThreeProducts, activeIndex } = this.state;
+    const { bestOfferProducts, topThreeProducts, topThreeCategories, activeIndex } = this.state;
 
     return (
       <React.Fragment>
@@ -92,7 +103,12 @@ class Home extends Component {
           <AppLink classNames={"all-products-link pb-5"} linkTo={""}>
             VER TODAS LAS OFERTAS <FontAwesomeIcon icon={faArrowRight} />
           </AppLink>
-          <MainTitle className="pt-5 pb-5" titleText={"Los más vendidos"}/>
+          <MainTitle className="pb-5" titleText={"Categorías destacadas"}/>
+          <CategoriesList categoriesList={topThreeCategories}/>
+          <AppLink classNames={"all-products-link pb-3"} linkTo={""}>
+            VER TODAS LAS CATEGORÍAS <FontAwesomeIcon icon={faArrowRight} />
+          </AppLink>
+          <MainTitle className="pb-5" titleText={"Los más vendidos"}/>
           <ProductsList productsList={topThreeProducts} />
           <AppLink classNames={"all-products-link pb-5"} linkTo={""}>
             VER TODAS LAS OFERTAS <FontAwesomeIcon icon={faArrowRight} />
