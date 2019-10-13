@@ -8,6 +8,13 @@
 
 .app {
   margin-top: $app-header-height;
+  height: 100%;
+}
+
+.footer {
+  display: block;
+  position: absolute;
+  bottom: 0;
 }
 
 .App-logo {

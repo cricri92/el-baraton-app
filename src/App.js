@@ -6,6 +6,7 @@ import HomeDetail from "screens/HomeDetail";
 import Header from "components/Header";
 
 import 'App.scss';
+import Footer from "./components/Footer";
 
 const App = () => {
     return (
@@ -14,6 +15,7 @@ const App = () => {
             <Header/>
             <Route exact path="/" component={Home} />
             <Route path="/home-detail" component={HomeDetail} />
+            <Footer />
           </div>
         </Router>
     )
