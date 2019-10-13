@@ -65,7 +65,7 @@ class ProductListItem extends Component {
               )
             }
           </div>
-          <ProductStatusBadge productStatus={product.quantity > 0 ? IN_STOCK : NO_STOCK} />
+          <ProductStatusBadge productStatus={product.available ? IN_STOCK : NO_STOCK} />
           <div className="product-item__info">
             <AppLink classNames={"product-item__name"} linkTo={""}>
               {product.name}
