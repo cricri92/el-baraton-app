@@ -1,0 +1,23 @@
+.product-status-badge {
+  display: block;
+  position: absolute;
+  right: 15px;
+  height: 25px;
+  font-size: 13px;
+  color: white;
+  font-weight: bold;
+  text-align: right;
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 5px;
+  vertical-align: middle;
+  top: 10px;
+}
+
+.product-status-badge--in-stock {
+  background: #799E5B;
+}
+
+.product-status-badge--no-stock {
+  background: darkred;
+}
