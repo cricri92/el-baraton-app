@@ -20,6 +20,18 @@ class ProductsService {
             products.sort(
               (a, b) =>
                 parseFloat(a.price.replace(/[$,]/g, '')) - parseFloat(b.price.replace(/[$,]/g, ''))
+            ).filter(
+              product => product.available
+            ).slice(0, top)
+          )
+        )
+    }
+
+    fetchTopProducts(top = 3) {
+        return new Promise((resolve, reject) =>
+          resolve(
+            products.filter(
+              product => product.available
             ).slice(0, top)
           )
         )
