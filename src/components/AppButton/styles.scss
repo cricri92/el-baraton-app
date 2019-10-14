@@ -7,3 +7,13 @@
   font-weight: $app-button-font-weight;
   padding: $app-button-padding;
 }
+
+.app-button:disabled {
+  opacity: 0.3;
+}
+
+.app-button--secondary {
+  background: $app-button-text-color;
+  color: $app-button-background-color;
+  border: $app-button-border;
+}
