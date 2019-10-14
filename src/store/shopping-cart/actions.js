@@ -1,8 +1,9 @@
 import {ADD_TO_SHOPPING_CART, SET_SELECTED_PRODUCT, UNSET_SELECTED_PRODUCT} from "./types";
 
-export const addToShoppingCart = product => ({
+export const addToShoppingCart = (product, quantity) => ({
   type: ADD_TO_SHOPPING_CART,
-  product
+  product,
+  quantity
 });
 
 export const setSelectedProduct = product => ({
