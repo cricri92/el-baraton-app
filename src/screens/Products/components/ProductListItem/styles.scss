@@ -1,3 +1,5 @@
+@import "variables";
+
 .product-item {
   height: 100%;
   margin-bottom: 30px;
@@ -34,6 +36,13 @@
   position: absolute;
   top: 0;
   background: rgba(0, 0, 0, 0.2);
+}
+
+.product-item__status {
+  display: block;
+  position: absolute;
+  right: $product-status-badge-right-align;
+  top: $product-status-badge-top-align;
 }
 
 @media(max-width: 992px) and (min-width: 768px) {

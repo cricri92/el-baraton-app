@@ -3,10 +3,6 @@
 .product-status-badge {
   font-family: "Roboto Condensed", sans-serif;
   text-transform: uppercase;
-  display: block;
-  position: absolute;
-  right: $product-status-badge-right-align;
-  top: $product-status-badge-top-align;
   height: $product-status-badge-height;
   font-size: $product-status-badge-font-size;
   color: $product-status-badge-font-color;
