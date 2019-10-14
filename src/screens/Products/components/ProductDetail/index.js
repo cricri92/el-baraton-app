@@ -18,7 +18,7 @@ import './styles.scss';
 import {SECONDARY_BUTTON} from "components/AppButton/constants";
 
 const mapDispatchToProps = dispatch => ({
-  addToShoppingCart: product => dispatch(addToShoppingCart(product)),
+  addToShoppingCart: (product, quantity) => dispatch(addToShoppingCart(product, quantity)),
   unsetSelectedProduct: () => dispatch(unsetSelectedProduct())
 });
 
@@ -37,7 +37,8 @@ class ProductDetail extends Component {
   }
 
   addToCart() {
-    this.props.addToShoppingCart(this.props.product);
+    this.props.addToShoppingCart(this.props.product, this.state.itemQuantity);
+    this.closeModal();
   }
 
   decrementQuantity() {
