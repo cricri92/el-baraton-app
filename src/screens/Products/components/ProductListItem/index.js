@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import {connect} from "react-redux";
 
 import {IN_STOCK, NO_STOCK} from "screens/Products/constants";
 
 import AppLink from "components/AppLink";
-import AppButton from "components/AppButton";
 import ProductPrice from "screens/Products/components/ProductPrice";
 import ProductStatusBadge from "screens/Products/components/ProductStatusBadge";
+import AddToCartButton from "screens/Products/components/AddToCartButton";
 
 import './styles.scss';
+
+const mapStateToProps = state => ({
+  shoppingCart: state.shoppingCart
+});
 
 class ProductListItem extends Component {
   constructor() {
@@ -42,8 +44,9 @@ class ProductListItem extends Component {
   };
 
   render() {
-    const { product, classNames } = this.props;
+    const { product, classNames, shoppingCart } = this.props;
     const { displayAddToCartAction } = this.state;
+    const { selectedProduct } = shoppingCart;
 
     return (
       <div className={classnames({
@@ -56,18 +59,18 @@ class ProductListItem extends Component {
             <img src="https://justoybueno.com/wp-content/uploads/2018/09/leche-bolsa-copy.jpg"
                 alt={product.name} />
             {
-              displayAddToCartAction && (
+              (displayAddToCartAction || (selectedProduct && selectedProduct.id === product.id)) && (
                 <div className="product-item__actions">
-                  <AppButton classNames={"product-item__action-button"}>
-                    <FontAwesomeIcon icon={faShoppingCart} /> Añadir al carrito
-                  </AppButton>
+                  <AddToCartButton product={product} />
                 </div>
               )
             }
           </div>
-          <ProductStatusBadge productStatus={product.available ? IN_STOCK : NO_STOCK} />
+          <ProductStatusBadge
+            classNames="product-item__status"
+            productStatus={product.available ? IN_STOCK : NO_STOCK} />
           <div className="product-item__info">
-            <AppLink classNames={"product-item__name"} linkTo={""}>
+            <AppLink classNames="product-item__name" linkTo={""}>
               {product.name}
             </AppLink>
             <ProductPrice price={product.price}
@@ -90,4 +93,4 @@ ProductListItem.propTypes = {
   classNames: PropTypes.string
 };
 
-export default ProductListItem;
+export default connect(mapStateToProps, null)(ProductListItem);
