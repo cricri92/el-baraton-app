@@ -1,21 +1,21 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
-import {Input} from "reactstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 import {IN_STOCK, NO_STOCK} from "screens/Products/constants";
+import {SECONDARY_BUTTON} from "components/AppButton/constants";
 
 import ProductStatusBadge from "screens/Products/components/ProductStatusBadge";
 import ProductPrice from "screens/Products/components/ProductPrice";
 import AppButton from "components/AppButton";
+import ProductQuantityChooser from "screens/Products/components/ProductQuantityChooser";
 
 import {faShoppingCart} from "@fortawesome/free-solid-svg-icons";
 
 import {addToShoppingCart, unsetSelectedProduct} from "store/shopping-cart/actions";
 
 import './styles.scss';
-import {SECONDARY_BUTTON} from "components/AppButton/constants";
 
 const mapDispatchToProps = dispatch => ({
   addToShoppingCart: (product, quantity) => dispatch(addToShoppingCart(product, quantity)),
@@ -65,21 +65,10 @@ class ProductDetail extends Component {
       <div className="product-detail">
         <div className="product-detail__avatar">
           <img src="https://justoybueno.com/wp-content/uploads/2018/09/leche-bolsa-copy.jpg" alt={product.name}/>
-          <div className="product-detail-quantity-chooser">
-            <AppButton actionButton={this.decrementQuantity}
-                       disabled={itemQuantity <= 1}
-                       classNames={"product-detail-quantity-chooser__button"}>
-              -
-            </AppButton>
-            <input type="text" value={itemQuantity}
-                   className="product-detail-quantity-chooser__input"
-                   onChange={this.handleQuantityChange}
-                   readOnly={true} />
-            <AppButton actionButton={this.incrementQuantity}
-                       classNames={"product-detail-quantity-chooser__button"}>
-              +
-            </AppButton>
-          </div>
+          <ProductQuantityChooser
+            incrementAction={this.incrementQuantity}
+            decrementAction={this.decrementQuantity}
+            quantity={itemQuantity} />
         </div>
         <div className="product-detail-content">
           <div className="product-detail-content__info">

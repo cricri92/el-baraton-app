@@ -65,28 +65,3 @@
 .product-detail-actions__add-to-cart {
   margin-left: 50px;
 }
-
-.product-detail-quantity-chooser {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-}
-
-.product-detail-quantity-chooser__button {
-  width: 35px;
-  height: 35px;
-
-  &:first-child {
-    margin-right: 5px;
-  }
-
-  &:last-child {
-    margin-left: 5px;
-  }
-}
-
-.product-detail-quantity-chooser__input {
-  font-weight: bold;
-  width: 65px;
-  text-align: center;
-}
