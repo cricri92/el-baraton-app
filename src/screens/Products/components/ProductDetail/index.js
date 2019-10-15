@@ -76,11 +76,11 @@ class ProductDetail extends Component {
             <ProductPrice price={product.price} />
           </div>
           <div className="product-detail-stock">
-          <span className="product-detail-stock__quantity">
-            Cantidades disponibles: {product.quantity}
-          </span>
             <ProductStatusBadge
               productStatus={product.available ? IN_STOCK : NO_STOCK} />
+            <span className="product-detail-stock__quantity">
+              Cantidades disponibles: {product.quantity}
+            </span>
           </div>
           <div className="product-detail-actions">
             <AppButton actionButton={this.closeModal}
