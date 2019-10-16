@@ -28,6 +28,26 @@
   height: 100%;
 }
 
+.product-detail-content__close-button {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 30px;
+
+  button {
+    color: black;
+    border: none;
+    background: none;
+    font-size: 20px;
+    font-weight: bold;
+
+    &:hover {
+      background: black;
+      color: white;
+    }
+  }
+}
+
 .product-detail-content__info {
   display: flex;
   width: 100%;
