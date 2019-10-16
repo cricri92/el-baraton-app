@@ -71,6 +71,11 @@ class ProductDetail extends Component {
             quantity={itemQuantity} />
         </div>
         <div className="product-detail-content">
+          <div className="product-detail-content__close-button">
+            <button onClick={this.closeModal}>
+              x
+            </button>
+          </div>
           <div className="product-detail-content__info">
             {product.name}
             <ProductPrice price={product.price} />
